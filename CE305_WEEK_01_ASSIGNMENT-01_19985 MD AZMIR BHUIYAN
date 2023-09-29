@@ -1,0 +1,35 @@
+def is_valid_number(number, base):
+    # Check if the number is valid for the given base
+    valid_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for digit in number:
+        if digit not in valid_digits[:base]:
+            return False
+    return True
+
+def convert_base(number, from_base, to_base):
+    # Convert a number from one base to another
+    decimal_number = 0
+    for digit in number:
+        decimal_number = decimal_number * from_base + int(digit, base=from_base)
+
+    new_number = ""
+    while decimal_number > 0:
+        digit = decimal_number % to_base
+        new_number = str(digit) + new_number
+        decimal_number //= to_base
+
+    return new_number
+
+def base_conv(number, from_base, to_base):
+    if is_valid_number(number, from_base):
+        result = convert_base(number, from_base, to_base)
+        print(f"The number {number} in base {from_base} is equivalent to {result} in base {to_base}")
+    else:
+        print(f"Error: The number {number} is not valid in base {from_base}")
+
+# Example usage
+number = input("Enter the number to convert: ")
+from_base = int(input("Enter the source base: "))
+to_base = int(input("Enter the target base: "))
+
+base_conv(number, from_base, to_base)
