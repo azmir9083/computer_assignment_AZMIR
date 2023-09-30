@@ -34,4 +34,4 @@ def float_to_14_bit_binary(num):
 # Example usage
 input_number = -26.625
 binary_representation = float_to_14_bit_binary(input_number)
-print(f"The binary representation of {input_number} is {binary_representation}")
+print(f"The binary representation of  {input_number} is {binary_representation}")
